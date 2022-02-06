@@ -2,7 +2,7 @@ import pastaList from '../json/pasta-list.json';
 
 export class PastaParagraph {
   pastaLength = pastaList.length;
-  maxWordsSentenceLength = this.pastaLength; // should be 20
+  maxWordsSentenceLength = 20;
   minWordsSentenceLength = 8;
   maxSentencesParagraphLength = 8;
   minSentencesParagraphLength = 3;
