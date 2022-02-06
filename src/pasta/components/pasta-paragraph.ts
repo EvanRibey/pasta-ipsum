@@ -1,4 +1,6 @@
 import pastaList from '../json/pasta-list.json';
+import { minMaxRand } from '../../shared/components/min-max-rand';
+import { spaceReducer } from '../../shared/components/space-reducer';
 
 export class PastaParagraph {
   pastaLength = pastaList.length;
@@ -7,19 +9,10 @@ export class PastaParagraph {
   maxSentencesParagraphLength = 8;
   minSentencesParagraphLength = 3;
 
-  minMaxRand(min: number, max: number) {
-    return Math.floor(Math.random() * (max - min) ) + min;
-  }
-
   randomNumber(): number {
     return Math.floor(Math.random() * this.pastaLength);
   }
   
-  spaceReducer(accum: string, current: string, index: number): string {
-    if (index === 0) current;
-    return `${accum} ${current}`;
-  }
-
   word(): string {
     return pastaList[this.randomNumber()];
   }
@@ -42,9 +35,9 @@ export class PastaParagraph {
 
   ipsumSentence(): string {
     const base = 'Pasta ipsum dolor sit amet,';
-    const sentenceLength = this.minMaxRand(this.minWordsSentenceLength, this.maxWordsSentenceLength - 5);
+    const sentenceLength = minMaxRand(this.minWordsSentenceLength, this.maxWordsSentenceLength - 5);
     const listWords = this.wordList(sentenceLength);
-    const endString = listWords.reduce((accum, current, index) => this.spaceReducer(accum, current, index));
+    const endString = listWords.reduce((accum, current, index) => spaceReducer(accum, current, index));
     return `${base} ${endString}.`;
   }
 
@@ -53,7 +46,7 @@ export class PastaParagraph {
 
     let numWords = 0;
     if (!words) {
-      numWords = this.minMaxRand(this.minWordsSentenceLength, this.maxWordsSentenceLength);
+      numWords = minMaxRand(this.minWordsSentenceLength, this.maxWordsSentenceLength);
     } else {
       numWords = words;
     }
@@ -62,7 +55,7 @@ export class PastaParagraph {
     const firstWord = listWords[0];
     listWords[0] = firstWord.charAt(0).toUpperCase() + firstWord.slice(1);
 
-    const sentence = listWords.reduce((accum, current, index) => this.spaceReducer(accum, current, index));
+    const sentence = listWords.reduce((accum, current, index) => spaceReducer(accum, current, index));
 
     return `${sentence}.`;
   }
@@ -70,7 +63,7 @@ export class PastaParagraph {
   paragraph(ipsum = false, sentences: number | null = null): string {
     let numSentences = 0;
     if (!sentences) {
-      numSentences = this.minMaxRand(this.minSentencesParagraphLength, this.maxSentencesParagraphLength);
+      numSentences = minMaxRand(this.minSentencesParagraphLength, this.maxSentencesParagraphLength);
     } else {
       numSentences = sentences;
     }
@@ -87,7 +80,7 @@ export class PastaParagraph {
       counter++;
     }
 
-    const paragraph = listSentences.reduce((accum, current, index) => this.spaceReducer(accum, current, index));
+    const paragraph = listSentences.reduce((accum, current, index) => spaceReducer(accum, current, index));
     return paragraph;
   }
 }
