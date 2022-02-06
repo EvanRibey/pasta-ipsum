@@ -1,0 +1,27 @@
+form.generator {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5em;
+}
+
+.generator__input {
+  margin-bottom: 1em;
+}
+
+.generator-result {
+  background-color: #eee;
+  padding: 1em;
+  text-align: left;
+}
+
+.generator-result p:first-of-type {
+  margin-top: 0;
+}
+
+.generator-result p:last-of-type {
+  margin-bottom: 0;
+}
+
+.generator-result--hidden {
+  display: none;
+}

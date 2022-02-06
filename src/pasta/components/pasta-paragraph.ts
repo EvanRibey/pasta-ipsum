@@ -60,13 +60,14 @@ export class PastaParagraph {
     return `${sentence}.`;
   }
 
-  paragraph(ipsum = false, sentences: number | null = null): string {
+  paragraph(ipsum = false, sentences:number|null=null): string {
     let numSentences = 0;
     if (!sentences) {
       numSentences = minMaxRand(this.minSentencesParagraphLength, this.maxSentencesParagraphLength);
     } else {
       numSentences = sentences;
     }
+    console.log(numSentences);
 
     const listSentences: string[] = [];
     if (ipsum) {
