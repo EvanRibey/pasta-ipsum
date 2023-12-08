@@ -53,7 +53,7 @@ export class Form {
       let counter = 0;
       while(counter < amount) {
         paragraphs.push(
-          this.pastaGenerator.paragraph(false),
+          this.pastaGenerator.paragraph(isIpsum),
         );
         isIpsum = isIpsum && false;
         counter++;
