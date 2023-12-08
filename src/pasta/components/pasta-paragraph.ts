@@ -67,7 +67,6 @@ export class PastaParagraph {
     } else {
       numSentences = sentences;
     }
-    console.log(numSentences);
 
     const listSentences: string[] = [];
     if (ipsum) {
