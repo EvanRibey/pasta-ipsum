@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "typescript": "^4.4.4",
-    "vite": "^2.9.16"
+    "vite": "^2.9.17"
   },
   "dependencies": {
     "@material/checkbox": "^13.0.0",
